@@ -106,6 +106,36 @@ const questions: Question[] = [
     options: ["1798", "1903", "1950", "1916"],
     answer: 1,
     fact: "St. Patrick's Day became an official public holiday in Ireland in 1903, thanks to the Bank Holiday (Ireland) Act."
+  },
+  {
+    q: "What gift are you supposedly given if you kiss the Blarney Stone in Ireland?",
+    options: ["Good luck", "The gift of eloquence", "Long life", "Great wealth"],
+    answer: 1,
+    fact: "The Blarney Stone is set in Blarney Castle in County Cork. Legend says kissing it grants 'the gift of the gab' — eloquence and flattery. Over 400,000 visitors make the trip each year!"
+  },
+  {
+    q: "Ottawa's famous spring tulip festival began as a gift from which country's royal family?",
+    options: ["Belgium", "France", "Netherlands", "United Kingdom"],
+    answer: 2,
+    fact: "The Canadian Tulip Festival began in 1953 after the Dutch royal family sent tulip bulbs to thank Canada for sheltering them during WWII and for liberating the Netherlands in 1945."
+  },
+  {
+    q: "What primarily causes Earth's seasons to change throughout the year?",
+    options: ["Earth's distance from the Sun", "Earth's axial tilt", "The Moon's gravitational pull", "Sunspot activity"],
+    answer: 1,
+    fact: "Earth's 23.5° axial tilt means different hemispheres receive more direct sunlight at different times of year — giving us spring, summer, autumn, and winter!"
+  },
+  {
+    q: "What river flows past Parliament Hill and forms the border between Ontario and Quebec?",
+    options: ["St. Lawrence River", "Rideau River", "Gatineau River", "Ottawa River"],
+    answer: 3,
+    fact: "The Ottawa River (Rivière des Outaouais) has formed the provincial boundary between Ontario and Quebec for centuries, flowing right past Parliament Hill."
+  },
+  {
+    q: "Until 1970, Irish law required something unexpected to close on St. Patrick's Day. What was it?",
+    options: ["Schools", "Post offices", "Pubs", "Government buildings"],
+    answer: 2,
+    fact: "St. Patrick's Day was a solemn religious holiday in Ireland, and pubs were legally required to close. The law changed in 1970 — and the celebrations haven't stopped since!"
   }
 ];
 
@@ -227,7 +257,7 @@ export default function TriviaGame() {
         <div style={title}>St. Paddy's Day Trivia</div>
         <div style={{ textAlign: "center", color: "#555", fontSize: "14px", marginBottom: "28px" }}>Adobe Ottawa Edition — {TOTAL} Questions</div>
         <p style={{ color: "#444", fontSize: "15px", lineHeight: 1.6, marginBottom: "8px" }}>
-          Test your knowledge on <strong>St. Patrick's Day</strong>, <strong>spring & March</strong>, and <strong>Ottawa</strong>! Good luck — you might need it. 🍀
+          Test your knowledge on <strong>St. Patrick's Day</strong>, <strong>Spring</strong>, and <strong>Ottawa</strong>! Good luck — you might need it. 🍀
         </p>
         <button style={startBtn} onClick={() => setScreen("question")}>Let's Play! 🎮</button>
       </div>
