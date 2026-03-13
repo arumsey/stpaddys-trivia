@@ -10,6 +10,7 @@ interface Question {
 type Screen = "intro" | "question" | "final";
 
 interface CopyScoreProps {
+  results: boolean[];
   score: number;
   total: number;
   msg: string;
@@ -110,10 +111,10 @@ const questions: Question[] = [
 
 const TOTAL = questions.length;
 
-function CopyScore({ score, total, msg }: CopyScoreProps) {
+function CopyScore({ results, score, total, msg }: CopyScoreProps) {
   const [copied, setCopied] = useState<boolean>(false);
 
-  const blocks: string[] = Array.from({ length: total }, (_, i) => i < score ? "🟩" : "⬛");
+  const blocks: string[] = results.map(correct => correct ? "🟩" : "⬛");
   const rows: string[] = [];
   for (let i = 0; i < blocks.length; i += 5) rows.push(blocks.slice(i, i + 5).join(""));
   const slackText = `☘️ *Adobe Ottawa St. Paddy's Trivia* ☘️\n\n${rows.join("\n")}\n\n*${score}/${total}* — ${msg}`;
@@ -181,6 +182,7 @@ export default function TriviaGame() {
   const [selected, setSelected] = useState<number | null>(null);
   const [score, setScore]       = useState<number>(0);
   const [revealed, setRevealed] = useState<boolean>(false);
+  const [results, setResults]   = useState<boolean[]>([]);
 
   const q = questions[current];
 
@@ -188,7 +190,9 @@ export default function TriviaGame() {
     if (revealed) return;
     setSelected(i);
     setRevealed(true);
-    if (i === q.answer) setScore(s => s + 1);
+    const correct = i === q.answer;
+    if (correct) setScore(s => s + 1);
+    setResults(r => [...r, correct]);
   };
 
   const handleNext = (): void => {
@@ -206,6 +210,7 @@ export default function TriviaGame() {
     setSelected(null);
     setScore(0);
     setRevealed(false);
+    setResults([]);
     setScreen("intro");
   };
 
@@ -238,7 +243,7 @@ export default function TriviaGame() {
           <div style={title}>Game Over!</div>
           <div style={{ textAlign: "center", fontSize: "42px", fontWeight: "900", color: "#2d7a2d", margin: "10px 0" }}>{score} / {TOTAL}</div>
           <p style={{ textAlign: "center", fontSize: "16px", color: "#444", marginBottom: "24px" }}>{msg}</p>
-          <CopyScore score={score} total={TOTAL} msg={msg} />
+          <CopyScore results={results} score={score} total={TOTAL} msg={msg} />
           <button style={startBtn} onClick={restart}>Play Again 🔄</button>
         </div>
       </div>
