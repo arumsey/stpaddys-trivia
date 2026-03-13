@@ -96,10 +96,10 @@ const questions: Question[] = [
     fact: "Adobe Ottawa is on Preston St. in Little Italy, one of Ottawa's most beloved neighbourhoods known for its Italian heritage, great restaurants, and lively community feel."
   },
   {
-    q: "What is the tallest structure in Ottawa?",
-    options: ["Parliament's Peace Tower", "CN Tower", "Gatineau Tower", "Ottawa City Hall"],
-    answer: 0,
-    fact: "The Peace Tower on Parliament Hill stands 92 metres tall and is the most recognizable landmark in Ottawa."
+    q: "What is the tallest building in Ottawa?",
+    options: ["Parliament's Peace Tower", "Claridge Icon", "Gatineau Tower", "Ottawa City Hall"],
+    answer: 1,
+    fact: "The Claridge Icon, a 45-storey condo tower at 805 Carling Ave in Little Italy, stands 143 metres tall. Completed in 2022, it's the tallest building in Ottawa."
   },
   {
     q: "St. Patrick's Day is celebrated on March 17th — which year did it first become a public holiday in Ireland?",
